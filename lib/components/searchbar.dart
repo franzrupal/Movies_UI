@@ -1,12 +1,10 @@
-// ignore_for_file: file_names, implementation_imports, unused_import, unnecessary_import
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+
 import '../constants.dart';
 
 class SearchFieldWidget extends StatelessWidget {
-  const SearchFieldWidget({super.key, required this.padding});
+  const SearchFieldWidget({Key? key, required this.padding}) : super(key: key);
 
   final EdgeInsetsGeometry padding;
 
@@ -15,9 +13,9 @@ class SearchFieldWidget extends StatelessWidget {
     return Padding(
       padding: padding,
       child: Container(
-        height: 36,
+        // height: 36,
         decoration: BoxDecoration(
-          color: tBlack,
+          color: Constants.gry.withOpacity(0.12),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
@@ -26,33 +24,38 @@ class SearchFieldWidget extends StatelessWidget {
               width: 8,
             ),
             SvgPicture.asset(
-              "images/icons/magnifyingglass.svg",
+              Constants.iconSearch,
             ),
             const SizedBox(
               width: 8,
             ),
-            const Expanded(
+            Expanded(
               child: TextField(
                 style: TextStyle(
-                  color: tGray,
+                  color: Constants.wht.withOpacity(0.6),
                   fontSize: 17,
                   letterSpacing: -0.41,
                 ),
                 decoration: InputDecoration(
-                    hintText: "Search",
-                    border: InputBorder.none,
-                    hintStyle: TextStyle(
-                      color: tGray,
-                      fontSize: 17,
-                      letterSpacing: -0.41,
-                    )),
+                  hintText: 'Search',
+                  border: InputBorder.none,
+                  isDense: true,
+                  hintStyle: TextStyle(
+                    color: Constants.wht.withOpacity(0.6),
+                    fontSize: 16,
+                    letterSpacing: -0.41,
+                  ),
+                ),
               ),
             ),
             const SizedBox(
               width: 8,
             ),
             SvgPicture.asset(
-              "images/icons/microphone.svg",
+              Constants.iconMic,
+            ),
+            const SizedBox(
+              width: 7,
             ),
           ],
         ),

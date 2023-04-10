@@ -1,13 +1,14 @@
-// ignore_for_file: file_names
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
 
-class MaskedImage extends StatelessWidget {
+class MovieCard extends StatelessWidget {
   final String? asset;
   final String? mask;
 
-  const MaskedImage({Key? key, required this.asset, required this.mask})
+  const MovieCard({Key? key, @required this.asset, @required this.mask})
       : super(key: key);
 
   @override
@@ -48,7 +49,7 @@ class MaskedImage extends StatelessWidget {
     );
     Image image = Image.memory(
       data.buffer.asUint8List(),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
       width: w,
       height: h,
     );
